@@ -1,0 +1,4 @@
+github.com/harshasavanth/bookstore_utils-go v0.0.0-20210522080208-facf636dbbf6 h1:dVgqhEFg/Jn8oI4oybGasolRgeEbYV8QVYapc6NxwMs=
+github.com/harshasavanth/bookstore_utils-go v0.0.0-20210522080208-facf636dbbf6/go.mod h1:n9Wa08iLi6TZ1lewag4VhB/ftbZujmLGVKSBupXzHS0=
+github.com/mercadolibre/golang-restclient v0.0.0-20170701022150-51958130a0a0 h1:EDOjA2IGgjSBlPlnW7CzBUo/o410SMiFh670jP29Kc4=
+github.com/mercadolibre/golang-restclient v0.0.0-20170701022150-51958130a0a0/go.mod h1:Z7qYja4aGk/RWl1yJtN1LXRvC7Hsbq8SEbqWWDrMqMs=
