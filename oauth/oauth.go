@@ -61,7 +61,7 @@ func GetClienId(request *http.Request) int64 {
 	return clientId
 }
 
-func AuthenticateRequest(request *http.Request) *errors.RestErr {
+func AuthenticateRequest(request *http.Request) *rest_errors.RestErr {
 	if request == nil {
 		return nil
 	}
@@ -91,22 +91,22 @@ func cleanRequest(request *http.Request) {
 	request.Header.Del(headerXCallerId)
 }
 
-func getGetAccessToken(accessTokenId string) (*accessToken, *errors.RestErr) {
+func getGetAccessToken(accessTokenId string) (*accessToken, *rest_errors.RestErr) {
 	response := oauthRestClient.Get(fmt.Sprintf("/oauth/access_token/%s", accessTokenId))
 	if response == nil || response.Response == nil {
-		return nil, errors.NewInternalServerError("invalid error interface when trying to get access token1 timeout")
+		return nil, rest_errors.NewInternalServerError("invalid error interface when trying to get access token1 timeout")
 	}
 	if response.StatusCode > 299 {
-		var restErr errors.RestErr
+		var restErr rest_errors.RestErr
 		err := json.Unmarshal(response.Bytes(), &restErr)
 		if err != nil {
-			return nil, errors.NewInternalServerError("invalid error interface when trying to get access token2")
+			return nil, rest_errors.NewInternalServerError("invalid error interface when trying to get access token2")
 		}
 		return nil, &restErr
 	}
 	var at accessToken
 	if err := json.Unmarshal(response.Bytes(), &at); err != nil {
-		return nil, errors.NewInternalServerError("error when trying to get access token3")
+		return nil, rest_errors.NewInternalServerError("error when trying to get access token3")
 	}
 	return &at, nil
 }
